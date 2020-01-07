@@ -23,14 +23,14 @@ function operate (operator, num1, num2){
     }
 }
 
-// const calculator = document.querySelector('.calculator');
-// function createButtons(){
-//     const btn = document.createElement('button');
-//     for (i=9; i>=0; i--){
-//         btn.textContent = '' +i;
-//         calculator.appendChild(btn);
-//     }
-//     btn.c
-    
-// }
-// createButtons();
+function displayClick(btn){
+    let display = document.querySelector('.displayScreen');
+    displayVal += btn;
+    display.textContent = displayVal;
+}
+
+let displayVal = '';
+let seven = document.querySelector('#a');
+seven.addEventListener('click', function(event){
+    displayClick(event.target.textContent);
+});
