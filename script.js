@@ -22,15 +22,20 @@ function operate (operator, num1, num2){
             return divide(num1, num2);   
     }
 }
-
-function displayClick(btn){
+function eventFunc (event){
+    displayClick(event.target.textContent);
+}
+function displayClick(digit){
     let display = document.querySelector('.displayScreen');
-    displayVal += btn;
+    if (display.textContent.length < 15){
+    displayVal += digit;
     display.textContent = displayVal;
+    }
 }
 
 let displayVal = '';
-let seven = document.querySelector('#a');
-seven.addEventListener('click', function(event){
-    displayClick(event.target.textContent);
+
+const digits = document.querySelectorAll('.digit');
+digits.forEach(digit => {
+    digit.addEventListener('click', eventFunc);
 });
